@@ -1,0 +1,54 @@
+/* this is a CSS comment */
+
+/* here, we change some of the default styles on our main document elements */
+html, body {
+	margin: 0;
+	background-color: lightskyblue;
+}
+
+@media(max-width: 767px) {
+	html, body {
+		background-color: #00ff00;
+	}
+}
+
+body {
+	text-align: center;
+	padding: 20px;
+}
+
+.element-style {
+display: inline-flex;
+position: sticky;
+top: 0;
+}
+
+.silly-text {
+	font-family: fantasy;
+	color: #00f7ff;
+	font-size: 40px;
+	text-wrap: balance;
+}
+
+a {
+  color: red;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: yellow;
+}
+
+.baby-text {
+	color: #ff0000;
+	font-size: 15px;
+}
+
+img {
+	height: 300px;
+	border-radius: 30%;
+}
+
+.centre-text {
+	text-align: center;
+}
