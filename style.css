@@ -1,54 +1,360 @@
-/* this is a CSS comment */
-
-/* here, we change some of the default styles on our main document elements */
 html, body {
-	margin: 0;
-	background-color: lightskyblue;
-}
-
-@media(max-width: 767px) {
-	html, body {
-		background-color: #00ff00;
-	}
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 body {
+	background-size: cover;      /* l'image remplit tout l'écran sans se déformer */
+	background-position: center;   /* on garde le centre de l'image visible */
+	background-repeat: no-repeat;  /* l'image ne se répète pas */
+	background-attachment: fixed;  /* optionnel : le fond reste fixe quand on scrolle */
+}
+
+.page-ground {
+  background-image: url("images/grassspiral.png");
+}
+
+.page-sky {
+  background-image: url("images/skybird-dreamcore.gif");
+}
+
+.page-candle {
+  background-image: url("images/grassByDarkness.gif");
+}
+
+.page-sacrifice {
+  background-image: url("images/grassByNight.gif");
+}
+
+.page-funfair {
+  background-image: url("images/creepy-dreamcore.gif");
+}
+
+.page-entrepot {
+  background-image: url("images/densecloud.gif");
+}
+
+.page-garden {
+  background-image: url("images/garden.gif");
+}
+
+.page-expiate {
+  background-image: url("images/garden.gif");
+}
+
+.page-mirror {
+  background-image: url("images/funfair/bubble.gif");
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
 	text-align: center;
-	padding: 20px;
+	padding: 0px;
 }
 
 .element-style {
-display: inline-flex;
-position: sticky;
-top: 0;
+	height: 100px;
+	display: inline-flex;
 }
 
-.silly-text {
-	font-family: fantasy;
-	color: #00f7ff;
-	font-size: 40px;
-	text-wrap: balance;
-}
+.background {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:110vw;
+	height:100vh;
+	object-fit:cover;
+	z-index:-1;
+	cursor: not-allowed;
+	pointer-events: none;
 
-a {
-  color: red;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: yellow;
-}
-
-.baby-text {
-	color: #ff0000;
-	font-size: 15px;
-}
-
-img {
-	height: 300px;
-	border-radius: 30%;
 }
 
 .centre-text {
 	text-align: center;
+}
+
+.center-image {
+  position: fixed;          /* or fixed: stays centered even when you scroll */
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 350px;
+  filter: drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.8));
+}
+.center-candle {
+  position: fixed;          /* or fixed: stays centered even when you scroll */
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 350px;
+  filter: drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.8));
+  z-index: 3;
+}
+
+
+.hover-box {
+  display: inline-block;
+}
+
+.hover-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -250%);
+  /*transform: translate(-50%, -50%);*/
+  margin: 0;
+  color: #9f71e1;
+  font-family: 'Jacquard 24';
+  font-size: 40px;
+  font-weight: 200;
+  opacity: 0;                 /* hidden by default */
+  transition: opacity 0.3s;
+  pointer-events: auto;
+  white-space: nowrap;     
+}
+
+.hover-text a {
+  color: inherit;          /* uses the color of .hover-text (#9f71e1) */
+  text-decoration: none;   /* removes the underline */
+}
+
+.hover-text a:hover {
+  color: inherit;          /* color when the mouse is on it, change as you like */
+}
+
+
+.hover-box img {
+  transition: filter 1s;     /* smooth fade, same speed as the text */
+}
+
+.hover-box:hover img {
+  filter: brightness(0.2);       /* image turns completely black */
+}
+
+
+.hover-box:hover .hover-text {
+  opacity: 1;                 /* appears on hover */
+}
+
+.littleimage {
+	min-height: 150px;
+	max-height: 200px;
+	}
+
+
+.stickyButtons {
+  position: fixed;
+  bottom: 20px;               
+  left: 50%;                    
+  transform: translateX(-50%);  
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.white-flash {
+  position: fixed;
+  inset: 0;                 /* covers the whole screen */
+  background: rgb(149, 98, 10);
+  z-index: 9999;            /* above everything */
+  pointer-events: none;     /* doesn't block clicks */
+  opacity: 0;
+  animation: fromWhite 1s ease-out;   /* arriving: white → page */
+}
+
+.white-flash.on {
+  animation: toWhite 1s ease-in forwards;  /* leaving: page → white */
+}
+
+@keyframes fromWhite {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes toWhite {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+  		.scene {
+    	position: relative;
+    	width: 100vw;
+    	height: 100vh;
+  		}
+
+  		.item {
+   		position: absolute;
+    	top: 0;
+    	left: 0;
+
+    	offset-path: ellipse(40% 35% at 50% 50%);
+    	offset-rotate: 0deg;
+
+    	animation: orbite 240s linear infinite;
+		animation-direction: reverse;   /* turns the other way */
+  		}
+
+  		.item:nth-child(1) { animation-delay: 0s; }
+  		.item:nth-child(2) { animation-delay: -40s; }
+  		.item:nth-child(3) { animation-delay: -80s; }
+  		.item:nth-child(4) { animation-delay: -120s; }
+  		.item:nth-child(5) { animation-delay: -150s; }
+  		.item:nth-child(6) { animation-delay: -200s; }
+
+  		@keyframes orbite {
+   		from { offset-distance: 0%; }
+    	to   { offset-distance: 100%; }
+  }
+
+  .stage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  /* "cover" behavior: always at least as wide AND as tall as the screen */
+  width: max(100vw, 100vh * 480 / 320);
+  aspect-ratio: 480 / 320;
+
+  background-size: 100% 100%;   /* the image exactly fills the box */
+}
+
+.stage-item {
+  position: absolute;
+  transform: translate(-50%, -50%);  /* left/top = the CENTER of the item */
+}
+
+.talker {
+	position: absolute;
+	cursor: pointer;          /* hand cursor = "you can click me" */
+	z-index: 100;
+}
+
+.talker img {
+	display: block;
+	width: 100%;
+}
+
+.bubble {
+	position: absolute;
+	bottom: 100%;             /* just above the character */
+	left: 50%;
+	transform: translateX(-50%) scale(0.8);
+	margin-bottom: 15px;
+
+	background: rgba(146, 81, 145, 0.8);
+	color: rgb(43, 11, 119);
+	font-family: 'Jacquard 24';
+	border: 3px solid rgb(43, 11, 119);
+	border-radius: 20px;
+
+	width: 18vw;
+	font-size: 2vw;
+	padding: 0.8vw 1.2vw;
+
+	opacity: 0;               /* hidden by default */
+	transition: opacity 0.2s, transform 0.2s;
+	pointer-events: none;
+}
+
+/* the little tail pointing at the character */
+.bubble::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 12px solid transparent;
+	border-top-color: rgb(43, 11, 119);
+}
+
+/* when visible */
+.bubble.show {
+	opacity: 1;
+	transform: translateX(-50%) scale(1);   /* small "pop" */
+}
+
+.sacrifice-thing {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 1.5s;
+}
+
+.sacrifice-thing.appear {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/* the old one melts */
+.melt-out {
+	transform-origin: top center;   /* stretches downward, like dripping */
+	pointer-events: none;
+	animation: meltOut 3s ease-in forwards;
+}
+
+@keyframes meltOut {
+	0%   { scale: 1 1;      opacity: 1;   filter: blur(0)    hue-rotate(0deg); }
+	60%  { scale: 1.05 1.5; opacity: 0.8; filter: blur(2px)  hue-rotate(90deg); }
+	100% { scale: 1.1 2.5;  opacity: 0;   filter: blur(10px) hue-rotate(180deg); }
+}
+
+/* the new one grows back in its place */
+.melt-in {
+	transform-origin: bottom center;   /* rises from the ground, like it's forming from the puddle */
+	animation: meltIn 3s ease-out forwards;
+}
+
+@keyframes meltIn {
+	0%   { scale: 1.1 0.3; opacity: 0; filter: blur(10px) hue-rotate(180deg); }
+	40%  { scale: 1.05 0.7; opacity: 0.6; filter: blur(4px) hue-rotate(90deg); }
+	100% { scale: 1 1;     opacity: 1; filter: blur(0) hue-rotate(0deg) drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.8)); }
+}
+
+.vanish-thing {
+	transition: opacity 0.5s;
+}
+
+.vanish-thing.gone {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* hidden until something is clicked */
+.hidden-thing {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s;
+}
+
+.hidden-thing.appear {
+	opacity: 1;
+}
+
+.well-done {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
+	margin: 0;
+	color: #9f71e1;
+	font-family: 'Jacquard 24';
+	font-size: 100px;
+	font-weight: 200;
+	text-shadow: 0 0 30px black, 0 0 40px black, 0 0 50px black;   /* black glow behind the letters */
+}
+
+/* clickable melt images: hand cursor, except while locked */
+.melt-click {
+	cursor: pointer;
+}
+
+.melt-click.locked {
+	cursor: default;
 }
