@@ -7,4 +7,11 @@
 - This workshop will challenge you to imagine and
 prototype your own online spaces. You will learn to code using HTML, CSS, and JavaScript while exploring some of the history (and potential futures) of the internet. No prior coding experience is required. However, you will be encouraged to code without Al, because it's more fun that way!
 
-[Link to the site](https://sarahbg30.github.io/md1-forever-online-workshop/)
+A workshop organised by Rifke Sadleir
+
+[Link to my website](https://sarahbg30.github.io/md1-forever-online-workshop/)
+
+Other cool website made by participants :
+- [Gold](https://drawingsound.imgoldkim.xyz)
+- [Danxiann](https://danxiannn.github.io/discovery_channel/)
+- [Maurice](https://github.com/Mauriceeggel/head-online-together-workshop)
