@@ -1,6 +1,6 @@
 # md1-forever-online-workshop
 
-01. <3 FOREVER ONLINE, TOGETHER ONLINE <3
+<3 FOREVER ONLINE, TOGETHER ONLINE <3
 - The internet offers no shortage of spaces where we can be
 "together," yet the online spaces where we spend most of our time in can feel like they do not really belong to us. What do we actually want from the online spaces we inhabit?
 - How does technology shape power and social structures?
